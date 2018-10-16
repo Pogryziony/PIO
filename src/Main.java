@@ -3,9 +3,11 @@ import java.util.Random;
 public class Main {
 	public static void main(String[] args) {
 		Random rand = new Random();
+		Player player = new Player();
 
 		int cube;
-		Player player = new Player();
+
+		// player.setName("Ziutek");
 
 		int guess;
 		do {
@@ -13,9 +15,9 @@ public class Main {
 			guess = player.guess();
 
 			if (guess != cube)
-				System.out.println("Wrong! Value of Cube = " + cube + " and Your guess = " + guess);
+				System.out.println(" Cube value = " + cube + " Your guess = " + guess);
 			else
-				System.out.println("\nWell done! You're right!");
+				System.out.println("\nWell done " + player.getName() + " you're right!");
 
 		} while (guess != cube);
 	}
