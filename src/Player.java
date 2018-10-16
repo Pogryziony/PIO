@@ -4,7 +4,9 @@ public class Player {
 	private Random rand = new Random();
 	private String name = "Default";
 
-	public Player() {}
+	public Player() {
+		
+	}
 
 	public Player(String name) {
 		setName(name);
@@ -24,6 +26,8 @@ public class Player {
 	}
 
 	public void setName(String name) {
+		if(name != null && !name.isEmpty()) {
 		this.name = name;
+		}
 	}
 }
