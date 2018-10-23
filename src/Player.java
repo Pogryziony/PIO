@@ -1,7 +1,5 @@
-import java.util.Random;
 
-public class Player {
-	private Random rand = new Random();
+public abstract class Player {
 	private String name = "Default";
 
 	public Player() {
@@ -13,13 +11,7 @@ public class Player {
 
 	}
 
-	public int guess() {
-		int value = 0;
-
-		value = rand.nextInt(6) + 1;
-
-		return value;
-	}
+abstract public int guess();
 
 	public String getName() {
 		return name;
