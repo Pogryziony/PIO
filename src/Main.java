@@ -4,6 +4,11 @@ public class Main {
 	public static void main(String[] args) {
 		Random rand = new Random();
 		Player player = new PlayerHuman();
+		try {
+			player.setName("E2");
+		} catch (Exception ex) {
+			System.err.println("Error! Wrong name "+ player.toString());
+		}
 
 		int cube;
 
