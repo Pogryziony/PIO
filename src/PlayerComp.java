@@ -1,18 +1,21 @@
 import java.util.Random;
 public class PlayerComp extends Player {
-	Random rand = new Random();
-	public PlayerComp() {
+	private final Random rand = new Random();
+	
+	public PlayerComp(TextInput in) {
+		super(in);
 	}
 
-	public PlayerComp(String name) {
-		super(name);
+	public PlayerComp(TextInput in, String name) {
+		super(in, name);
 	}
+
 	public int guess() {
-		
 		int value = 0;
 
 		value = rand.nextInt(6) + 1;
 
 		return value;
+
 	}
 }

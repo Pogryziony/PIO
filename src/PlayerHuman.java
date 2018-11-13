@@ -2,22 +2,21 @@ import java.util.Scanner;
 
 public class PlayerHuman extends Player {
 
-	private final Scanner input = new Scanner(System.in);;
+	// DRY - don't repeat yourself
 
-	public PlayerHuman() {
+	private final Scanner cin = new Scanner(System.in);
+
+	public PlayerHuman(TextInput in) {
+		super(in);
 	}
 
-	public PlayerHuman(String name) {
-		super(name);
-
+	public PlayerHuman(TextInput in, String name) {
+		super(in, name);
 	}
 
-@Override
-	public int guess() {
-		int number;
-
-		System.out.println("Enter the number from 1 to 6: ");
-		number = input.nextInt();
-		return number;
-	}
+	@Override
+		public int guess() {
+			  System.out.print("Wpisz "+getName()+" liczbe 1 - 6: ");
+			  return cin.nextInt();
+}
 }
