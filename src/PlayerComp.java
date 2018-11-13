@@ -1,7 +1,8 @@
 import java.util.Random;
+
 public class PlayerComp extends Player {
 	private final Random rand = new Random();
-	
+
 	public PlayerComp(TextInput in) {
 		super(in);
 	}

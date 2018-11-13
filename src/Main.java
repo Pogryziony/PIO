@@ -1,56 +1,32 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Main {
+
 	@SuppressWarnings("unused")
-	private static Scanner choose;
-	final static Random rand = new Random();
-
 	public static void main(String[] args) {
-
-		int cube;
-		choose = new Scanner(System.in);
-
-		Player player = new PlayerHuman(new GUIInput());
-//			Player player = null;
-
-//			System.out.println("Who's the Player?\n\t1. Human\n\t2. Computer\n");
-
-//			choice = choose.nextInt();
-//			if(choice == 1) player = new PlayerHuman();
-//			else if (choice == 2) player = new PlayerComputer();
-//			
-
-//			TextInput in;
-//			System.out.println("What's the type of input?\n\t1. Console\n\t2. GUI\n");
-//			int choice = choose.nextInt();
-//			if(choice == 1)	player(new ConsoleInput());
-//			else if (choice == 2)	player(new GUIInput());
-
-		try {
-			player.askForName();
-			
-			// player.setName("Ziutek");
-			int guess;
-			do {
-				cube = rand.nextInt(6) + 1;
-				guess = player.guess();
-
-				if (guess != cube)
-					System.out.println(
-							"Wrong " + player.getName() + "! Value of Cube = " + cube + " and Your guess = " + guess);
-				else
-					System.out.println("\nWell done " + player.getName() + "! You're right!");
-
-			} while (guess != cube);
+//		Game game = new Game();
+//		game.addPlayer(new PlayerComp(new GUIInput()));
+//		game.play();
+		
+		List<String> list = new ArrayList<String>();
+		list.add("raz");
+		list.add("dwa");
+		list.add("trzy");
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
 		}
-//			catch (IllegalArgumentException e){
-//				System.err.println("\nWrong name human :/\n");
-//				//player.setName(choose.nextLine());
-//			}
-		catch (Exception e) {
-			System.out.println("\nError." + player.toString());
+		for (String s : list) {
+			System.out.println(s);
+		}
+		Iterator<String> it = list.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+			
 		}
 	}
 }
+// trzecia wersja iterowania po liscie i jawne iterowanie.
 //https://regex101.com/
