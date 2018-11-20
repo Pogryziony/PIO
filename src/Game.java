@@ -1,59 +1,62 @@
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
+/**
+ *
+ * @author olek
+ */
 public class Game {
-	@SuppressWarnings("unused")
-	private static Scanner choose;
+
 	protected Player player;
-	protected Random rand = new Random();
+	protected Random rand = new Random(); // obiekt losujący
+	protected List<Player> players = new ArrayList<>();
 
+	/**
+	 * 
+	 * @param player
+	 */
 	public void addPlayer(Player player) {
-		this.player = player;
-//		player = new PlayerHuman(new GUIInput());
-//		Player player = null;
-
-//		System.out.println("Who's the Player?\n\t1. Human\n\t2. Computer\n");
-
-//		choice = choose.nextInt();
-//		if(choice == 1) player = new PlayerHuman();
-//		else if (choice == 2) player = new PlayerComputer();
-//		
-
-//		TextInput in;
-//		System.out.println("What's the type of input?\n\t1. Console\n\t2. GUI\n");
-//		int choice = choose.nextInt();
-//		if(choice == 1)	player(new ConsoleInput());
-//		else if (choice == 2)	player(new GUIInput());
+		if(player!=null) {
+		players.add(player);
+	}else {
+		throw new IllegalArgumentException("Gracz nie moze byc nullem");
 	}
+//		for (Player player : players) {
+//			
+//		}
+		}
 
+	/**
+	 * 
+	 */
 	public void play() {
+		int number, // wylosowana liczba
+			guess; // propozycja (strzał) gracza
 
-		int cube;
-		choose = new Scanner(System.in);
+		boolean oneMore = true;
+		do {
+			System.out.println("---------------------");
 
-		try {
-			player.askForName();
+			number = rand.nextInt(6) + 1;
+			System.out.println("Kostka: " + number);
 
-			// player.setName("Ziutek");
-			int guess;
-			do {
-				cube = rand.nextInt(6) + 1;
+			for (Player player : players) {
 				guess = player.guess();
 
-				if (guess != cube)
-					System.out.println(
-							"Wrong " + player.getName() + "! Value of Cube = " + cube + " and Your guess = " + guess);
-				else
-					System.out.println("\nWell done " + player.getName() + "! You're right!");
+				System.out.println("Gracz " + player.getName() + ": " + guess);
 
-			} while (guess != cube);
-		}
-//		catch (IllegalArgumentException e){
-//			System.err.println("\nWrong name human :/\n");
-//			//player.setName(choose.nextLine());
-//		}
-		catch (Exception e) {
-			System.out.println("\nError." + player.toString());
-		}
+				if (number != guess) {
+					System.out.println("PUDŁO!");
+				} else {
+					oneMore = false;
+					System.out.println("BRAWO!");
+
+				}
+			}
+		} while (oneMore);
+
 	}
+
 }

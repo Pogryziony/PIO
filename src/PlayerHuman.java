@@ -1,22 +1,32 @@
+
 import java.util.Scanner;
 
+/**
+ *
+ * @author olek
+ */
 public class PlayerHuman extends Player {
 
-	// DRY - don't repeat yourself
-
-	private final Scanner cin = new Scanner(System.in);
-
-	public PlayerHuman(TextInput in) {
-		super(in);
-	}
-
-	public PlayerHuman(TextInput in, String name) {
-		super(in, name);
-	}
-
-	@Override
-		public int guess() {
-			  System.out.print("Wpisz "+getName()+" liczbe 1 - 6: ");
-			  return cin.nextInt();
-}
+    Scanner cin = new Scanner(System.in);
+    
+    /*
+     * Konstruktory 
+     */
+    public PlayerHuman() {}
+    
+    public PlayerHuman(String name) {
+        super(name);
+    }
+    
+    /**
+     * Metoda "odgadująca" -- liczba podawana w konsoli.
+     * 
+     * @return 
+     */
+    @Override
+    public int guess() {
+        System.out.print("Wpisz liczbę (1-6): ");
+        return cin.nextInt();
+    }
+    
 }

@@ -1,47 +1,47 @@
+
+/**
+ *
+ * @author olek
+ */
 public abstract class Player {
-	private String name = "Default";
-	final String regex = "^[a-zA-Z][a-zA-Z0-9._@-]+$";
-	private TextInput in;
+       
+    private String name = "Domyślny Janusz";
+       
+    public Player() {}
+    
+    public Player(String name) {
+        setName(name);
+    }
 
-	public Player(TextInput in) {
-		this.in = in;
-	}
+    /**
+     * Abstrakcyjna metoda guess().
+     * 
+     * @return 
+     */
+    public abstract int guess();
 
-	public Player(TextInput in, String name) {
-		this.in = in;
-		this.setName(name);
-	}
+    /**
+     * Geter pola name.
+     * 
+     * @return imię gracza
+     */
+    public String getName() {
+        return name;
+    }
 
-	public void setTextInput(TextInput in) {
-
-		this.in = in;
-
-	}
-
-	public void askForName() {
-		// ConsoleInput in = new ConsoleInput();
-		setName(in.getText());
-
-	}
-
-	@Override
-	public String toString() {
-		return this.getClass().getSimpleName() + " : " + name; // PlayerComputer : Player
-		// return super.toString()+ " : " + name; //PlayerComputer@4554617c : Player
-	}
-
-	public void setName(String name) { // !"".equals(name) && !name.isEmpty() for objects
-		if (name != null && name.matches(regex))
-			this.name = name;
-		else {
-			throw new IllegalArgumentException("Wrong name");
-		}
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	abstract public int guess();
-
+    /**
+     * Seter pola name.
+     * 
+     * Sprawdza poprawność danych (nie null i niepuste).
+     * 
+     * @param name imię gracza
+     */
+    public void setName(String name) {
+        if (name != null && name.matches("^[a-zA-Z][a-zA-Z0-9@\\-_.]{2,29}$")) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Nieprawidłowe imię.");
+        }
+    }
+    
 }
