@@ -21,9 +21,12 @@ public class DiceGame {
         
         Player player = new PlayerComp("Marian");
                 
-        game.addPlayer(player);
         game.addPlayer(new PlayerComp("Ziutek"));
-        game.addPlayer(null);
+        game.addPlayer(new PlayerComp("Heniek"));
+
+        game.removePlayer("Ziutek");
+        
+        game.printPlayerList();
         
         game.play();
     }
