@@ -16,19 +16,21 @@ public class DiceGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+    	Stats stats = new Stats();
         Game game = new Game();
         
         Player player = new PlayerComp("Marian");
                 
         game.addPlayer(new PlayerComp("Ziutek"));
         game.addPlayer(new PlayerComp("Heniek"));
-
+        game.addPlayer(new PlayerComp("Heniek"));
+        game.addPlayer(new PlayerComp("Heniek"));
         game.removePlayer("Ziutek");
         
         game.printPlayerList();
         
         game.play();
+        stats.showStats();
     }
     
 }

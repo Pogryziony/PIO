@@ -13,7 +13,13 @@ public class Game {
 	protected Player player;
 	protected Random rand = new Random(); // obiekt losujący
 	protected static List<Player> players = new ArrayList<>();
-
+	static Stats stats = new Stats();
+	public Game() {
+		
+	}
+	public Game(Stats stats) {
+		this.stats = new Stats();
+	}
 	/**
 	 * 
 	 * @param player
@@ -87,6 +93,7 @@ public class Game {
 				} else {
 					oneMore = false;
 					System.out.println("BRAWO!");
+					stats.playerWinner(player.getName());
 
 				}
 			}
